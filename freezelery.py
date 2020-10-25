@@ -58,6 +58,18 @@ def build_task(n):
             fetch_details_for_user.s() |
             group(send_welcome_email.s(), print_user_to_file.s()))
 
+    # The following composition works,
+    # it propagates the Exception correctly
+    # although it's slightly different
+
+    # def correct_workflow():
+    #     return (
+    #         fetch_user.s() |
+    #         fetch_details_for_user.s() |
+    #         send_welcome_email.s() |
+    #         print_user_to_file.s()
+    #     )
+
     return group([workflow() for _ in range(0, n)])
         
 # Exports
