@@ -1,0 +1,12 @@
+
+software -> celery:5.0.1 (singularity) kombu:5.0.2 py:3.8.5
+            billiard:3.6.3.0 redis:3.5.3
+platform -> system:Linux arch:64bit, ELF
+            kernel version:5.8.3-arch1-1 imp:CPython
+loader   -> celery.loaders.app.AppLoader
+settings -> transport:redis results:redis://localhost:6379/
+
+broker_url: 'redis://localhost:6379//'
+result_backend: 'redis://localhost:6379/'
+deprecated_settings: None
+
